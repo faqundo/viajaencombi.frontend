@@ -2,6 +2,7 @@ import React from 'react';
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
 import FormSearch from './FormSearch';
 import SliderForm from './SliderForm';
 import terminal1 from '../images/terminal1.jpg';
@@ -13,23 +14,28 @@ const PanelPrincipal = (props) => {
 
     return (
         <Container  >
-            <Row clasName="my-3 justify-content-center ">
+            <Form.Group >
 
-                <Col xs={6} md={5} lg={6} clasName="my-3 justify-content-center">
 
-                    <FormSearch />
+                <Row className="my-3 justify-content-center " >
 
-                </Col>
+                    <Col  xs={6} md={5} lg={6} clasName="my-3 justify-content-center">
 
-                <Col xs={6} md={6} lg={6} clasName="my-3 justify-content-center">
-                    <SliderForm slider1={terminal1}
-                        slider2={terminal2}
-                        slider3={terminal3}
-                        slider4={terminal4}
-                    />
-                </Col>
+                        <FormSearch />
 
-            </Row>
+                    </Col>
+
+                    <Col  xs={6} md={6} lg={6} clasName="my-3 justify-content-center">
+                        <SliderForm  
+                            slider1={terminal1}
+                            slider2={terminal2}
+                            slider3={terminal3}
+                            slider4={terminal4}
+                        />
+                    </Col>
+
+                </Row>
+            </Form.Group>
         </Container>
 
     )

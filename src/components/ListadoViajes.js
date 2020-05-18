@@ -7,7 +7,7 @@ const ListadoViajes = () => {
 
     return(
 
-        <Row className="m-4">
+        <Row className="p-4" style={{backgroundColor :"#ECECEC"}} expand="lg">
             
            <TarjetaDestino destino="Ezeiza"
                            imagen="https://www.buenosaires.gob.ar/sites/gcaba/files/styles/interna_pagina/public/_mg_0477.jpg"
