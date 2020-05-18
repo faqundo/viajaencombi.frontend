@@ -13,7 +13,6 @@ const ListadoViajes = () => {
                            imagen="https://www.buenosaires.gob.ar/sites/gcaba/files/styles/interna_pagina/public/_mg_0477.jpg"
                            precio="$200"
             />
-
            <TarjetaDestino destino="Adrogue"
                            imagen="https://i0.wp.com/laurbedigital.com.ar/noticias/wp-content/uploads/2017/12/20171221-brown1.jpg" 
                            precio="$220"

@@ -4,11 +4,12 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logoCombi from "../logo.jpg";
 
+
 function NavigationBar() {
 
     return (
 
-        <Navbar  variant="dark"  style={{backgroundColor: "#563d7c"}} expand="lg">
+        <Navbar  variant="dark"  style={{backgroundColor: "#563d7c"}} expand="lg" className="mb-4">
             
             <Navbar.Brand href="#home" >
                 
@@ -20,7 +21,7 @@ function NavigationBar() {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             
             <Navbar.Collapse id="basic-navbar-nav">
-
+            
                 <Nav className="ml-auto">
 
                     <Nav.Link>Mis reservas</Nav.Link>

@@ -1,44 +1,29 @@
 import React from "react";
-import { Row , Col , Form , Button } from "react-bootstrap";
+import { Col, Form, Button , } from "react-bootstrap";
+
 
 
 export default () =>
 
 
+    <Form>
+        <Form.Group controlId="formBasicEmail">
+            <Form.Label>Origen</Form.Label>
+            <Form.Control type="email" placeholder="Ingrese lugar de partida" />
+            
+        </Form.Group>
 
-        <div class="col-md-6 header-content-right">
-          <form role="form ">
-            <div class="form-group ">
-              <label for="exampleInputEmail1">
-                <font style="vertical-align: inherit;">
-                  <font style="vertical-align: inherit;">
-                    Origen
-                  </font>
-                </font>
-              </label>
-              <input type="email" class="form-control" id="exampleInputEmail1">
-            </div>
-            <div class="form-group">
+        <Form.Group >
+            <Form.Label>Destino</Form.Label>
+            <Form.Control  placeholder="Ingrese destino" />
+        </Form.Group>
+        
+        <Col sm={2} xs={3}>
+            <Button>
+                Buscar
+            </Button>
+        </Col>
+    </Form>
 
-              <label for="exampleInputPassword1">
-                <font style="vertical-align: inherit;">
-                  <font style="vertical-align: inherit;">
-                    Destino
-                  </font>
-                </font>
-              </label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
-            </div>
-            <div class="form-group">
-            </div>
-            <button type="submit" class="btn btn-primary">
-              <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">
-                  Buscar
-                </font>
-              </font>
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
+
+

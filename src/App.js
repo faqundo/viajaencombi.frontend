@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
-import Search from './components/Search';
+
 import ListadoViajes from './components/ListadoViajes';
+import PanelPrincipal from './components/PanelPrincipal';
 
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
     <>
     <NavigationBar />
 
-    <Search />
+    <PanelPrincipal />
 
     <ListadoViajes />
 
