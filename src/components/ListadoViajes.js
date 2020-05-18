@@ -1,40 +1,40 @@
 import React from 'react';
-import { Row , Col , Card } from "react-bootstrap";
-import iconoNoFavorito from '../nofavorito.svg'
+import Row  from "react-bootstrap/Row";
+import TarjetaDestino from './TarjetaDestino';
+
 
 const ListadoViajes = () => {
 
     return(
 
-        <Row>
+        <Row className="m-4">
             
-            <Col md={4} lg={3} xl={2}>
+           <TarjetaDestino destino="Ezeiza"
+                           imagen="https://www.buenosaires.gob.ar/sites/gcaba/files/styles/interna_pagina/public/_mg_0477.jpg"
+                           precio="$200"
+            />
 
-                <Card>
-
-                    <Card.Body>
-
-                        <a className="nav-link p-0 text-right" href="#">
-                            <img style={{height : "1rem" }}src={iconoNoFavorito}></img>
-                        </a>
-
-                        <Card.Title>
-                            Viaje 1
-                        </Card.Title>
-                        <img src="https://d2idryjws00qar.cloudfront.net/aiv/gra/image/home/carrousel-home-villa-gesell-bs-as.png" className="card-img-top">
-
-                        </img>
-                    </Card.Body>
-
-                    <Card.Footer>
-                        <p>$220</p>
-                    </Card.Footer>
-                    
-
-                </Card>
-
-            </Col>
-
+           <TarjetaDestino destino="Adrogue"
+                           imagen="https://i0.wp.com/laurbedigital.com.ar/noticias/wp-content/uploads/2017/12/20171221-brown1.jpg" 
+                           precio="$220"
+           />
+           <TarjetaDestino destino="Lanus"
+                           imagen="https://i0.wp.com/laurbedigital.com.ar/noticias/wp-content/uploads/2017/12/20171221-brown1.jpg" 
+                           precio="$220"
+           />
+           <TarjetaDestino destino="Grand Bour"
+                           imagen="https://i0.wp.com/laurbedigital.com.ar/noticias/wp-content/uploads/2017/12/20171221-brown1.jpg" 
+                           precio="$300"
+           />
+           <TarjetaDestino destino="Pilar"
+                           imagen="https://i0.wp.com/laurbedigital.com.ar/noticias/wp-content/uploads/2017/12/20171221-brown1.jpg" 
+                           precio="$150"
+           />
+           <TarjetaDestino destino="Adrogue SUR"
+                           imagen="https://i0.wp.com/laurbedigital.com.ar/noticias/wp-content/uploads/2017/12/20171221-brown1.jpg" 
+                           precio="$220"
+           />
+           
 
         </Row>
 
