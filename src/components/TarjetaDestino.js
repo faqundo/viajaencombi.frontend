@@ -11,7 +11,7 @@ export default (props) =>
 
             <Card.Body>
 
-                <a className="nav-link p-0 text-right" href="#">
+                <a className="nav-link p-0 text-right" href="www.google.com">
                     <img style={{ height: "1rem" }} src={iconoNoFavorito} alt="icono favorito"></img>
                 </a>
 

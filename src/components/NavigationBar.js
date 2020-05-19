@@ -1,39 +1,48 @@
 import React from 'react';
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import Button from "react-bootstrap/Button";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logoCombi from "../logo.jpg";
 
 
-function NavigationBar() {
+function NavigationBar(props) {
 
     return (
 
-        <Navbar  variant="dark"  style={{backgroundColor: "#563d7c"}} expand="lg" className="mb-4">
-            
+        <Navbar variant="dark" style={{ backgroundColor: "#563d7c" }} expand="lg" className="mb-4">
+
             <Navbar.Brand href="#home" >
-                
-                <img style={{height : "4rem" }} src={logoCombi} alt="logo"></img>
+
+                <img style={{ height: "4rem" }} src={logoCombi} alt="logo"></img>
                 <Navbar.Text className="ml-2">Combi App</Navbar.Text>
-                
+
             </Navbar.Brand>
-            
+
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            
+
             <Navbar.Collapse id="basic-navbar-nav">
-            
+
                 <Nav className="ml-auto">
 
-                    <Nav.Link>Mis reservas</Nav.Link>
+                    {!props.user
 
-                    <Nav.Link>Favoritos</Nav.Link>
+                    ?
+                        <Button variant="primary">Iniciar sesión</Button>
 
-                    <NavDropdown alignRight title="Pablo">
-                        <NavDropdown.Item>Mi cuenta</NavDropdown.Item>
-                        <NavDropdown.Divider/>
-                        <NavDropdown.Item>Cerrar sesion</NavDropdown.Item>
-                    </NavDropdown>
+                    :
+                        <>
+                            <Nav.Link>Mis reservas</Nav.Link>
 
+                            <Nav.Link>Favoritos</Nav.Link>
+
+                            <NavDropdown alignRight title={props.user}>
+                                <NavDropdown.Item>Mi cuenta</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item>Cerrar sesion</NavDropdown.Item>
+                            </NavDropdown>
+                        </>
+                    }
                 </Nav>
 
             </Navbar.Collapse>
