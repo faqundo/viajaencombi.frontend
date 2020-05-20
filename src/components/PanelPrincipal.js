@@ -19,13 +19,13 @@ const PanelPrincipal = (props) => {
 
                 <Row className="my-3 justify-content-center " >
 
-                    <Col  xs={6} md={5} lg={6} clasName="my-3 justify-content-center">
+                    <Col  xs={6} md={5} lg={6} className="my-3 justify-content-center">
                     
                         <FormSearch />
 
                     </Col>
 
-                    <Col  xs={6} md={6} lg={6} clasName="my-3 justify-content-center">
+                    <Col  xs={6} md={6} lg={6} className="my-3 justify-content-center">
                         <SliderForm  
                             slider1={terminal1}
                             slider2={terminal2}

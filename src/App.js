@@ -1,15 +1,14 @@
 import React from 'react';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
-import ListadoViajes from './components/ListadoViajes';
+import ListadoDestinos from './components/ListadoDestinos';
 import PanelPrincipal from './components/PanelPrincipal';
 import TravelDetail from './components/TravelDetail';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
-} from "react-router-dom";
+  Route
+} from "react-router-dom"; //Está asociado a Link tmb. 
 
 //colores principales:#563d7c o #7F0C78 o  #C87DEA , #6610f2 , #6f42c1
 //colores secundarios: #36bbac , #666 ,
@@ -27,7 +26,7 @@ function App() {
                children={
                           <>
                           <PanelPrincipal />
-                          <ListadoViajes />
+                          <ListadoDestinos />
                           </>
                         } 
           />
