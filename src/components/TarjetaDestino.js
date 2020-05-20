@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Card } from "react-bootstrap";
-import iconoNoFavorito from '../nofavorito.svg'
+import iconoNoFavorito from '../nofavorito.svg';
+import {Link} from 'react-router-dom';
 
 
 export default (props) =>
@@ -15,15 +16,15 @@ export default (props) =>
                     <img style={{ height: "1rem" }} src={iconoNoFavorito} alt="icono favorito"></img>
                 </a>
 
-                <a className="nav-link p-0 mt-1" href=" #">
+                <Link to="/destinos/125" className="nav-link p-0 mt-1" href="/">
                     <Card.Title style={{ fontSize: "1rem" }}>
                         {props.destino}
-             </Card.Title>
+                    </Card.Title>
 
                     <img
                         src={props.imagen} className="card-img-top" alt="imagen descriptiva destino">
                     </img>
-                </a>
+                </Link>
             </Card.Body>
 
             <Card.Footer>

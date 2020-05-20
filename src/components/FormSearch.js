@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Button, FormGroup } from "react-bootstrap";
+import { Form, Button, FormGroup ,Row , Col } from "react-bootstrap";
 
 
 
@@ -24,22 +24,29 @@ export default () =>
             <Form.Control placeholder="Ingrese destino" />
         </Form.Group>
 
-        {['checkbox', 'radio'].map((type) => (
-            <div key={`default-${type}`} className="mb-3">
-                <Form.Check
-                    type={type}
-                    id={`default-${type}`}
-                    label={`default ${type}`}
-                />
-
-                <Form.Check
-                    disabled
-                    type={type}
-                    label={`disabled ${type}`}
-                    id={`disabled-default-${type}`}
-                />
-            </div>
-        ))}
+        <fieldset>
+            <Form.Group as={Row}>
+                
+                <Col sm={10}>
+                    <Form.Check
+                    inline
+                        type="radio"
+                        label="Sólo ida"
+                        name="formHorizontalRadios"
+                        id="formHorizontalRadios1"
+                    />
+                    <Form.Check
+                    inline
+                        type="radio"
+                        label="Ida y vuelta"
+                        name="formHorizontalRadios"
+                        id="formHorizontalRadios2"
+                    />
+                    
+                </Col>
+            </Form.Group>
+        </fieldset>
+        
 
 
         <Form.Group sm={2} xs={3}>

@@ -5,7 +5,8 @@ import Button from "react-bootstrap/Button";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logoCombi from "../logo4.png";
 import LoginModal from "./LoginModal";
-import fondoNav from "../images/clarin-365-header.png"
+import fondoNav from "../images/clarin-365-header.png";
+import {Link} from 'react-router-dom';
 //colores principales:#563d7c o #7F0C78 o  #C87DEA , #6610f2 , #6f42c1
 //colores secundarios: #36bbac , #666 , 
 
@@ -31,14 +32,14 @@ function NavigationBar(props) {
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
             </style>
-                <Navbar.Brand href="#home" >
+                <Link to="/">
 
                     <img style={{ height: "4rem" }} src={logoCombi} alt="logo"></img>
                     <Navbar.Text className="ml-2" style={{fontFamily: 'Cedarville Cursive' , fontSize : "2rem"}}>
                         Viajá en combi
                     </Navbar.Text>
 
-                </Navbar.Brand>
+                </Link>
 
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
