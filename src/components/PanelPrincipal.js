@@ -5,10 +5,10 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import FormSearch from './FormSearch';
 import SliderForm from './SliderForm';
-import terminal1 from '../images/terminal1.jpg';
-import terminal2 from '../images/terminal2.jpg';
-import terminal3 from '../images/terminal3.jpg';
-import terminal4 from '../images/terminal4.jpg';
+import terminal1 from '../images/banner-home-traslado-empresas.webp';
+import terminal2 from '../images/pasaje-micro-en-efectivo.webp';
+import terminal3 from '../images/cdp-banner-653x440-eticket-op.webp';
+import terminal4 from '../images/pasajes-de-micro-en-cuotas-sin-interes-min.webp';
 
 const PanelPrincipal = (props) => {
 
@@ -20,7 +20,7 @@ const PanelPrincipal = (props) => {
                 <Row className="my-3 justify-content-center " >
 
                     <Col  xs={6} md={5} lg={6} clasName="my-3 justify-content-center">
-
+                    
                         <FormSearch />
 
                     </Col>
@@ -31,6 +31,7 @@ const PanelPrincipal = (props) => {
                             slider2={terminal2}
                             slider3={terminal3}
                             slider4={terminal4}
+                            
                         />
                     </Col>
 
