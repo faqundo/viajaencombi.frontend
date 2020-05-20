@@ -16,7 +16,7 @@ export default (props) =>
                     <img style={{ height: "1rem" }} src={iconoNoFavorito} alt="icono favorito"></img>
                 </a>
 
-                <Link to="/destinos/125" className="nav-link p-0 mt-1" href="/">
+                <Link to={"/destinos/"+props.id} className="nav-link p-0 mt-1" href="/">
                     <Card.Title style={{ fontSize: "1rem" }}>
                         {props.destino}
                     </Card.Title>
