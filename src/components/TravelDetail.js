@@ -24,7 +24,7 @@ export default () => {
         destino && 
         <Row className="d-flex justify-content-center">
             <Col md={4} className="d-flex justify-content-center">
-                <img src="http://localhost:8888/images/ezeiza.jpg" className="img-fluid"/>
+                <img src="http://localhost:8888/images/ezeiza.jpg" className="img-fluid" alt="Imagen de Destino"/>
             </Col>
 
             <Col md={4}>

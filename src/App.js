@@ -10,8 +10,8 @@ import {
   Route
 } from "react-router-dom"; //Está asociado a Link tmb. 
 
-//colores principales:#563d7c o #7F0C78 o  #C87DEA , #6610f2 , #6f42c1
-//colores secundarios: #36bbac , #666 ,
+//colores principales:#563d7c o #7F0C78 o  #C87DEA , #6610f2 , #6f42c1 , #9d1d96
+//colores secundarios: #36bbac , #666 , hsl(118, 59.00%, 71.00%)
 //colores de fuentes : #9F1897
 
 function App() {
