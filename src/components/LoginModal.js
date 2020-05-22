@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal, Button, Form } from 'react-bootstrap';
 
 export default (props) =>
 
@@ -9,7 +9,23 @@ export default (props) =>
         </Modal.Header>
 
         <Modal.Body>
-            <p>Aca iría el Form ...</p>
+            
+            <Form.Group>
+
+                <Form.Label>Nombre de usuario</Form.Label>
+                <Form.Control type='text'/>
+                
+            </Form.Group>
+
+            <Form.Group>
+
+                <Form.Label>Contraseña</Form.Label>
+                <Form.Control type='password'/>
+                
+            </Form.Group>
+
+
+
         </Modal.Body>
 
         <Modal.Footer>
