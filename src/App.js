@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import './App.css';
 import NavigationBar from './components/NavigationBar';
 import ListadoDestinos from './components/ListadoDestinos';
@@ -15,10 +15,13 @@ import {
 //colores de fuentes : #9F1897
 
 function App() {
+
+  const [usuario , setUsuario] = useState(null);
+
   return (
     <Router>
 
-      <NavigationBar user="" />
+      <NavigationBar user={usuario} />
 
 
       <Switch>

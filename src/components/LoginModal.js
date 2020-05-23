@@ -1,4 +1,4 @@
-import React from 'react';
+import React , {useState} from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
 
 export default (props) => {
@@ -10,8 +10,8 @@ export default (props) => {
         let url = 'http://localhost:8888/auth'
 
         let params = {
-                        user :'pepe',
-                        password:'123456'
+                        user :nombreUsuario,
+                        password:password
                      };
 
         fetch (url ,{
@@ -24,8 +24,23 @@ export default (props) => {
                     }
         ).then(response => response.json())
          .then(data => {
-            console.log(data);
+            if (data.status === 'ok'){
+                alert(data.message);
+            }else{
+                alert(data.message);
+            }
          });
+    }
+
+    const [nombreUsuario , setNombreUsuario] = useState('');
+    const [password , setPassword] = useState('');
+
+    const handleUserNameChange = (event) =>{
+        setNombreUsuario( event.target.value );
+    }
+
+    const handlePasswordChange =(event) =>{
+        setPassword (event.target.value);
     }
 
     return (
@@ -39,14 +54,18 @@ export default (props) => {
                 <Form.Group>
 
                     <Form.Label>Nombre de usuario</Form.Label>
-                    <Form.Control type='text' />
+                    <Form.Control type='text' 
+                                  value={nombreUsuario} 
+                                  onChange={handleUserNameChange}/>
 
                 </Form.Group>
 
                 <Form.Group>
 
                     <Form.Label>Contraseña</Form.Label>
-                    <Form.Control type='password' />
+                    <Form.Control type='password'
+                                  value={password}
+                                  onChange={handlePasswordChange}/>
 
                 </Form.Group>
 
