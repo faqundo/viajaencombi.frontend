@@ -60,11 +60,12 @@ function NavigationBar(props) {
 
                             :
                             <>
+                                
                                 <Nav.Link>Mis reservas</Nav.Link>
 
                                 <Nav.Link>Favoritos</Nav.Link>
 
-                                <NavDropdown alignRight title={props.user}>
+                                <NavDropdown alignRight title={props.user.nombre}>
                                     <NavDropdown.Item>Mi cuenta</NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item>Cerrar sesion</NavDropdown.Item>
@@ -76,7 +77,9 @@ function NavigationBar(props) {
                 </Navbar.Collapse>
             </Navbar>
 
-            <LoginModal show={showLoginModal} handleHide={handleHideLoginModal} />
+            <LoginModal show={showLoginModal} 
+                        handleHide={handleHideLoginModal}
+                        handleLoginSuccess={props.handleLoginSuccess} />
         </>
 
     );
