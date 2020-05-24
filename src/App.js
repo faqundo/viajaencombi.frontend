@@ -6,7 +6,8 @@ import PanelPrincipal from './components/PanelPrincipal';
 import TravelDetail from './components/TravelDetail';
 import Footer from './components/Footer';
 import Ayuda from './components/Ayuda';
-import MisPasajes from './components/pendientes/MisPasajes'
+import MisPasajes from './components/MisPasajes';
+import DevolucionPasajes from './components/DevolucionPasajes';
 
 import {
   BrowserRouter as Router,
@@ -88,13 +89,13 @@ function App() {
             </>
           }
         />
-        {/*<Route exact path="/ayuda/devolucion-de-pasajes"
+        <Route exact path="/ayuda/devolucion-de-pasajes"
           children={
             <>
               <DevolucionPasajes />
             </>
           }
-        />*/}
+        />
 
         <Route exact path="/reenviarpasaje"
           children={

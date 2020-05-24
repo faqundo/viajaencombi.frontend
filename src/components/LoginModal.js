@@ -43,6 +43,7 @@ export default (props) => {
 
     const handlePasswordChange =(event) =>{
         setPassword (event.target.value);
+        
     }
     
     
@@ -55,7 +56,7 @@ export default (props) => {
             </Modal.Header>
 
             <Modal.Body>
-
+                
                 <Form.Group>
 
                     <Form.Label>Nombre de usuario</Form.Label>
@@ -70,7 +71,7 @@ export default (props) => {
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control type='password'
                                   value={password}
-                                  onChange={handlePasswordChange}/>
+                                  />
 
                 </Form.Group>
 
@@ -83,7 +84,7 @@ export default (props) => {
                     Cancelar {/*onclick - función como props en NavigationBar que se ejecuta al hacer click en cancelar*/}
             </Button>
                 <Button variant="primary"
-                        onClick={handleLoginClick}
+                        onClick={handleLoginClick}                        
                                                 
                 >
                     Aceptar {/*onclick recibe una función*/}
