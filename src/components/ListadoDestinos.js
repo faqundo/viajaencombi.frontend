@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Row from "react-bootstrap/Row";
+
 import TarjetaDestino from './TarjetaDestino';
 
 
 
-const ListadoDestinos = () => {
+
+const ListadoDestinos = (props) => {
 
     const [destinos, setDestinos] = useState([])
 
@@ -21,7 +23,7 @@ const ListadoDestinos = () => {
     )
 
     return (
-        
+        <>
         <Row className = "p-4" style = {{ backgroundColor: "#ECECEC" }} expand = "lg" >
 
         {
@@ -33,6 +35,7 @@ const ListadoDestinos = () => {
                                     imagen={destino.imagen}
                                     precio={destino.precio}
                                     id={destino.id}
+                                    type={props.type}
                     />
 
 
@@ -41,7 +44,10 @@ const ListadoDestinos = () => {
         }      
 
         </Row >
+        
 
+
+        </>
     );
 
 }

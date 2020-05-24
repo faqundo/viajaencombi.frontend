@@ -32,7 +32,7 @@ function NavigationBar(props) {
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
             </style>
-                <Link to="/">
+                <Link to="/" className='navbar-brand'>
 
                     <img style={{ height: "4rem" }} src={logoCombi} alt="logo"></img>
                     <Navbar.Text className="ml-2" style={{fontFamily: 'Cedarville Cursive' , fontSize : "2rem"}}>
@@ -61,14 +61,19 @@ function NavigationBar(props) {
                             :
                             <>
                                 
-                                <Nav.Link>Mis reservas</Nav.Link>
+                                <Link to={"/mispasajes"} className="nav-link">
+                                    Mis pasajes
+                                </Link>
+                                <Link to={"/misdestinos"} className="nav-link">
+                                    Mis destinos
+                                </Link>
 
                                 <Nav.Link>Favoritos</Nav.Link>
 
                                 <NavDropdown alignRight title={props.user.nombre}>
                                     <NavDropdown.Item>Mi cuenta</NavDropdown.Item>
                                     <NavDropdown.Divider />
-                                    <NavDropdown.Item>Cerrar sesion</NavDropdown.Item>
+                                    <NavDropdown.Item onClick={props.handleLogout}>Cerrar sesion</NavDropdown.Item>
                                 </NavDropdown>
                             </>
                         }

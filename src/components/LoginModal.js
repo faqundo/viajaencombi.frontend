@@ -44,6 +44,9 @@ export default (props) => {
     const handlePasswordChange =(event) =>{
         setPassword (event.target.value);
     }
+    
+    
+
 
     return (
         <Modal show={props.show} onHide={props.handleHide}>
@@ -73,14 +76,15 @@ export default (props) => {
 
             </Modal.Body>
 
-            <Modal.Footer>
+            <Modal.Footer >
                 <Button variant="secondary"
-                    onClick={props.handleHide} 
+                        onClick={props.handleHide} 
                 >
                     Cancelar {/*onclick - función como props en NavigationBar que se ejecuta al hacer click en cancelar*/}
             </Button>
                 <Button variant="primary"
-                    onClick={handleLoginClick} 
+                        onClick={handleLoginClick}
+                                                
                 >
                     Aceptar {/*onclick recibe una función*/}
              </Button>

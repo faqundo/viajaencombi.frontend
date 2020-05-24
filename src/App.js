@@ -4,8 +4,9 @@ import NavigationBar from './components/NavigationBar';
 import ListadoDestinos from './components/ListadoDestinos';
 import PanelPrincipal from './components/PanelPrincipal';
 import TravelDetail from './components/TravelDetail';
-import Footer from './components/Footer'
-import Ayuda from './components/Ayuda'
+import Footer from './components/Footer';
+import Ayuda from './components/Ayuda';
+import MisPasajes from './components/pendientes/MisPasajes'
 
 import {
   BrowserRouter as Router,
@@ -25,11 +26,29 @@ function App() {
     setUsuario(loggedUser);
   }
 
+  const onLogout = ()=>{
+    
+    let url = 'http://localhost:8888/auth';
+
+    fetch(url ,{
+                method: 'DELETE',
+                credentials : 'include'
+               }
+        ).then(response => response.json()
+        ).then(data =>{
+                       setUsuario(null);
+                      })
+
+
+  }
+
   return (
     <Router>
 
       <NavigationBar user={usuario}
-        handleLoginSuccess={onLoginSuccess} />
+                     handleLoginSuccess={onLoginSuccess}
+                     handleLogout ={onLogout}
+      />
 
       
 
@@ -39,7 +58,7 @@ function App() {
           children={
             <>
               <PanelPrincipal />
-              <ListadoDestinos />
+              <ListadoDestinos type="destinos" />
             </>
           }
         />
@@ -56,7 +75,8 @@ function App() {
         <Route exact path="/misdestinos"
           children={
             <>
-              <PanelPrincipal />
+              <ListadoDestinos user={usuario}
+                               type="misdestinos"/>
             </>
           }
         />
@@ -68,6 +88,14 @@ function App() {
             </>
           }
         />
+        {/*<Route exact path="/ayuda/devolucion-de-pasajes"
+          children={
+            <>
+              <DevolucionPasajes />
+            </>
+          }
+        />*/}
+
         <Route exact path="/reenviarpasaje"
           children={
             <>
@@ -78,7 +106,7 @@ function App() {
         <Route exact path="/mispasajes"
           children={
             <>
-              <PanelPrincipal />
+              <MisPasajes  user={usuario}/>
             </>
           }
         />
