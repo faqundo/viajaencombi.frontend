@@ -59,11 +59,10 @@ export default (props) => {
                 
                 <Form.Group>
 
-                    <Form.Label>Correo electrónico</Form.Label>
-                    <Form.Control type='email' 
+                    <Form.Label>Nombre de usuario</Form.Label>
+                    <Form.Control type='text' 
                                   value={nombreUsuario} 
-                                  onChange={handleUserNameChange}
-                                  placeholder="example@email.com"/>
+                                  onChange={handleUserNameChange}/>
 
                 </Form.Group>
 
@@ -72,7 +71,6 @@ export default (props) => {
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control type='password'
                                   value={password}
-                                  placeholder="Ingrese su contraseña"
                                   />
 
                 </Form.Group>
@@ -95,3 +93,34 @@ export default (props) => {
         </Modal>
     )
 }
+
+class NameForm extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {value: ''};
+  
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
+  
+    handleChange(event) {
+      this.setState({value: event.target.value});
+    }
+  
+    handleSubmit(event) {
+      alert('A name was submitted: ' + this.state.value);
+      event.preventDefault();
+    }
+  
+    render() {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Name:
+            <input type="text" value={this.state.value} onChange={this.handleChange} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      );
+    }
+  }

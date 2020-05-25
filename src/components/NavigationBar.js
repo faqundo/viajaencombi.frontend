@@ -28,6 +28,11 @@ function NavigationBar(props) {
         setShowLoginModal(true);
     };
 
+    const [regModal, setRegModal] = useState(false);
+    const handleShowRegModal = () => {
+        setRegModal(true);
+    };
+
     return (
         <>
             <Navbar variant="dark" style={sectionStyle} expand="lg" className="mb-4">
@@ -38,7 +43,7 @@ function NavigationBar(props) {
 
                     <img style={{ height: "4rem" }} src={logoCombi} alt="logo"></img>
                     <Navbar.Text className="ml-2" style={{ fontFamily: 'Cedarville Cursive', fontSize: "2rem" }}>
-                        Viajá en combi
+                        Viajá en combi . com
                     </Navbar.Text>
 
                 </Link>
@@ -54,12 +59,19 @@ function NavigationBar(props) {
                             ?
                             <>
                                 <Button
-                                    style={{ backgroundColor: "#7F0C78" }}
+                                    style={{ backgroundColor: "#7F0C78" , height: "3rem" }}
                                     variant="primary"
                                     onClick={handleShowLoginModal}
                                 >
-                                    Iniciar sesión
+                                    Ingresá
                                 </Button>
+                                <Nav.Link
+                                    style={{  height: "2rem" }}
+                                    variant="primary"
+                                    onClick={handleShowLoginModal}
+                                >
+                                    Creá tu cuenta
+                                </Nav.Link>
                                 <Link to={"/ayuda"} className="nav-link">
                                     <img style={{ height: "2rem" }} src={logoAyuda} alt="logo"></img>
                                 </Link>
@@ -91,6 +103,7 @@ function NavigationBar(props) {
             <LoginModal show={showLoginModal}
                 handleHide={handleHideLoginModal}
                 handleLoginSuccess={props.handleLoginSuccess} />
+            
         </>
 
     );

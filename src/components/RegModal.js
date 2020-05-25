@@ -15,7 +15,7 @@ export default (props) => {
                      };
 
         fetch (url ,{
-                        method:'POST',
+                        method:'INSERT',
                         credentials :'include',
                         body: JSON.stringify(params),
                         headers : {
@@ -59,7 +59,7 @@ export default (props) => {
                 
                 <Form.Group>
 
-                    <Form.Label>Correo electrónico</Form.Label>
+                    <Form.Label>Correo electrónico (Usuario) </Form.Label>
                     <Form.Control type='email' 
                                   value={nombreUsuario} 
                                   onChange={handleUserNameChange}
@@ -72,7 +72,10 @@ export default (props) => {
                     <Form.Label>Contraseña</Form.Label>
                     <Form.Control type='password'
                                   value={password}
-                                  placeholder="Ingrese su contraseña"
+                                  />
+                    <Form.Label>Confirmar contraseña</Form.Label>
+                    <Form.Control type='password'
+                                  value={password}
                                   />
 
                 </Form.Group>
