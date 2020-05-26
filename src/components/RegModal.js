@@ -1,100 +1,56 @@
-import React , {useState} from 'react';
-import { Modal, Button, Form } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Modal, Button, Form, Col } from 'react-bootstrap';
+import { Formik } from 'formik';
+import { useFormik } from 'formik';
 
-export default (props) => {
-
-
-
-    const handleLoginClick = () => {
-        
-        let url = 'http://localhost:8888/auth'
-
-        let params = {
-                        user :nombreUsuario,
-                        password:password
-                     };
-
-        fetch (url ,{
-                        method:'INSERT',
-                        credentials :'include',
-                        body: JSON.stringify(params),
-                        headers : {
-                                    'Content-Type' : 'application/json'
-                                  }
-                    }
-        ).then(response => response.json())
-         .then(data => {
-            if (data.status === 'ok'){
-                props.handleLoginSuccess(data.loggedUser);
-                props.handleHide();
-
-            }else{
-                alert(data.message);
-            }
-         });
-    }
-
-    const [nombreUsuario , setNombreUsuario] = useState('');
-    const [password , setPassword] = useState('');
-
-    const handleUserNameChange = (event) =>{
-        setNombreUsuario( event.target.value );
-    }
-
-    const handlePasswordChange =(event) =>{
-        setPassword (event.target.value);
-        
-    }
-    
-    
-
-
+const RegModal = () => {
+    // Notice that we have to initialize ALL of fields with values. These
+    // could come from props, but since we don't want to prefill this form,
+    // we just use an empty string. If you don't do this, React will yell
+    // at you.
+    const formik = useFormik({
+        initialValues: {
+            firstName: '',
+            lastName: '',
+            email: '',
+        },
+        onSubmit: values => {
+            alert(JSON.stringify(values, null, 2));
+        },
+    });
     return (
-        <Modal show={props.show} onHide={props.handleHide}>
-            <Modal.Header closeButton>
-                <Modal.Title>Iniciar sesión</Modal.Title>
-            </Modal.Header>
+        
 
-            <Modal.Body>
-                
-                <Form.Group>
 
-                    <Form.Label>Correo electrónico (Usuario) </Form.Label>
-                    <Form.Control type='email' 
-                                  value={nombreUsuario} 
-                                  onChange={handleUserNameChange}
-                                  placeholder="example@email.com"/>
+            <form onSubmit={formik.handleSubmit}>
+                <label htmlFor="firstName">First Name</label>
+                <input
+                    id="firstName"
+                    name="firstName"
+                    type="text"
+                    onChange={formik.handleChange}
+                    value={formik.values.firstName}
+                />
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    onChange={formik.handleChange}
+                    value={formik.values.lastName}
+                />
+                <label htmlFor="email">Email Address</label>
+                <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                />
+                <button type="submit">Submit</button>
+            </form>
+        
+    );
+};
 
-                </Form.Group>
-
-                <Form.Group>
-
-                    <Form.Label>Contraseña</Form.Label>
-                    <Form.Control type='password'
-                                  value={password}
-                                  />
-                    <Form.Label>Confirmar contraseña</Form.Label>
-                    <Form.Control type='password'
-                                  value={password}
-                                  />
-
-                </Form.Group>
-
-            </Modal.Body>
-
-            <Modal.Footer >
-                <Button variant="secondary"
-                        onClick={props.handleHide} 
-                >
-                    Cancelar {/*onclick - función como props en NavigationBar que se ejecuta al hacer click en cancelar*/}
-            </Button>
-                <Button variant="primary"
-                        onClick={handleLoginClick}                        
-                                                
-                >
-                    Aceptar {/*onclick recibe una función*/}
-             </Button>
-            </Modal.Footer>
-        </Modal>
-    )
-}
+export default RegModal;

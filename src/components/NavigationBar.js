@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import logoCombi from "../logo4.png";
 import LoginModal from "./LoginModal";
+
 import fondoNav from "../images/clarin-365-header.png";
 import { Link } from 'react-router-dom';
 import logoAyuda from '../images/ayuda/logo-ayuda.png'
@@ -28,10 +29,9 @@ function NavigationBar(props) {
         setShowLoginModal(true);
     };
 
-    const [regModal, setRegModal] = useState(false);
-    const handleShowRegModal = () => {
-        setRegModal(true);
-    };
+    
+    
+    
 
     return (
         <>
@@ -59,16 +59,17 @@ function NavigationBar(props) {
                             ?
                             <>
                                 <Button
-                                    style={{ backgroundColor: "#7F0C78" , height: "3rem" }}
+                                    style={{ backgroundColor: "#7F0C78" }}
                                     variant="primary"
                                     onClick={handleShowLoginModal}
+                                    size="md"
                                 >
                                     Ingresá
                                 </Button>
                                 <Nav.Link
-                                    style={{  height: "2rem" }}
                                     variant="primary"
                                     onClick={handleShowLoginModal}
+                                    size="md"
                                 >
                                     Creá tu cuenta
                                 </Nav.Link>
@@ -86,10 +87,11 @@ function NavigationBar(props) {
                                     Mis destinos
                                 </Link>
 
-                                <Nav.Link>Favoritos</Nav.Link>
 
                                 <NavDropdown alignRight title={props.user.nombre}>
-                                    <NavDropdown.Item>Mi cuenta</NavDropdown.Item>
+                                    <NavDropdown.Item>
+                                        <Link to="/mi-cuenta">Mi cuenta</Link>
+                                    </NavDropdown.Item>
                                     <NavDropdown.Divider />
                                     <NavDropdown.Item onClick={props.handleLogout}>Cerrar sesion</NavDropdown.Item>
                                 </NavDropdown>
@@ -103,7 +105,9 @@ function NavigationBar(props) {
             <LoginModal show={showLoginModal}
                 handleHide={handleHideLoginModal}
                 handleLoginSuccess={props.handleLoginSuccess} />
+
             
+
         </>
 
     );

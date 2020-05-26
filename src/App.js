@@ -9,6 +9,7 @@ import Ayuda from './components/Ayuda';
 import MisPasajes from './components/MisPasajes';
 import DevolucionPasajes from './components/DevolucionPasajes';
 
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,20 +26,22 @@ function App() {
 
   const onLoginSuccess = (loggedUser) => {
     setUsuario(loggedUser);
+
   }
 
-  const onLogout = ()=>{
-    
+  const onLogout = () => {
+
     let url = 'http://localhost:8888/auth';
 
-    fetch(url ,{
-                method: 'DELETE',
-                credentials : 'include'
-               }
-        ).then(response => response.json()
-        ).then(data =>{
-                       setUsuario(null);
-                      })
+    fetch(url, {
+      method: 'DELETE',
+      credentials: 'include'
+    }
+    ).then(response => response.json()
+    ).then(data => {
+      setUsuario(null);
+
+    })
 
 
   }
@@ -47,11 +50,11 @@ function App() {
     <Router>
 
       <NavigationBar user={usuario}
-                     handleLoginSuccess={onLoginSuccess}
-                     handleLogout ={onLogout}
+        handleLoginSuccess={onLoginSuccess}
+        handleLogout={onLogout}
       />
 
-      
+
 
 
       <Switch>
@@ -73,14 +76,7 @@ function App() {
           }
         />
 
-        <Route exact path="/misdestinos"
-          children={
-            <>
-              <ListadoDestinos user={usuario}
-                               type="misdestinos"/>
-            </>
-          }
-        />
+
 
         <Route exact path="/ayuda"
           children={
@@ -104,21 +100,47 @@ function App() {
             </>
           }
         />
-        <Route exact path="/mispasajes"
+
+
+        {usuario &&
+        <>
+        <Route exact path="/misdestinos"
           children={
             <>
-              <MisPasajes  user={usuario}/>
+              <ListadoDestinos user={usuario}
+                type="misdestinos" />
             </>
           }
         />
+        
+        <Route exact path="/mispasajes"
+          children={
+            <>
+              <MisPasajes user={usuario} />
+            </>
+          }
+        />
+      
 
+        <Route exact path="/mi-cuenta"
+          children={
+            <>
+              <MisPasajes user={usuario} />
+              <ListadoDestinos user={usuario}
+                type="misdestinos" />
+              <Ayuda />
+            </>
+          }
+        />
+        </>
+      }
 
       </Switch>
 
-    <Footer />
+      <Footer />
 
     </Router>
-    
+
   );
 }
 

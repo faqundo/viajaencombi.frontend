@@ -1,5 +1,7 @@
 import React , {useState} from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
+import Swal from 'sweetalert2';	
+
 
 export default (props) => {
 
@@ -25,10 +27,15 @@ export default (props) => {
         ).then(response => response.json())
          .then(data => {
             if (data.status === 'ok'){
-                props.handleLoginSuccess(data.loggedUser);
+                Swal.fire(
+                    {
+                        text : 'Sesión iniciada con exito',
+                        icon : 'success'
+                    })
+                props.handleLoginSuccess(data.loggedUser);  
                 props.handleHide();
-
-            }else{
+            }
+            else{
                 alert(data.message);
             }
          });
@@ -73,6 +80,7 @@ export default (props) => {
                     <Form.Control type='password'
                                   value={password}
                                   placeholder="Ingrese su contraseña"
+                                  onChange={handlePasswordChange}
                                   />
 
                 </Form.Group>
@@ -80,6 +88,7 @@ export default (props) => {
             </Modal.Body>
 
             <Modal.Footer >
+                <a href="/">Registrarme</a>
                 <Button variant="secondary"
                         onClick={props.handleHide} 
                 >
