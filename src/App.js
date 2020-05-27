@@ -8,6 +8,10 @@ import Footer from './components/Footer';
 import Ayuda from './components/Ayuda';
 import MisPasajes from './components/MisPasajes';
 import DevolucionPasajes from './components/DevolucionPasajes';
+import DestinosDestacados from './components/paginas/DestinosDestacados';
+import ResultadoBusqueda from './components/paginas/ResultadoBusqueda';
+
+
 
 
 import {
@@ -46,9 +50,9 @@ function App() {
     })
   }
 
-  const handleOrigenBuscadoChange = (terminoBuscado)=>{
+  const handleOrigenBuscadoChange = (terminoBuscado) => {
 
-    if (terminoBuscado === ''){
+    if (terminoBuscado === '') {
       terminoBuscado = null;
     }
     setOrigenBuscado(terminoBuscado);
@@ -69,10 +73,11 @@ function App() {
         <Route exact path="/"
           children={
             <>
-              <PanelPrincipal onSearchOrigen={handleOrigenBuscadoChange}/>
+              <PanelPrincipal onSearchOrigen={handleOrigenBuscadoChange} />
               <ListadoDestinos type="destinos"
-                               user={usuario}
-                               searchOrigen={origenBuscado}/>
+                user={usuario}
+                searchOrigen={origenBuscado} />
+              <DestinosDestacados />
             </>
           }
         />
@@ -106,49 +111,60 @@ function App() {
         <Route exact path="/reenviarpasaje"
           children={
             <>
-              <PanelPrincipal onSearchOrigen={handleOrigenBuscadoChange}/>
-            </>
-          }
-        />
-
-
-        {usuario &&
-        <>
-        <Route exact path="/misdestinos"
-          children={
-            <>
-              <ListadoDestinos user={usuario}
-                type="misdestinos" />
+              <PanelPrincipal onSearchOrigen={handleOrigenBuscadoChange} />
             </>
           }
         />
         
-        <Route exact path="/mispasajes"
-          children={
-            <>
-              <MisPasajes user={usuario} />
-            </>
-          }
-        />
-      
+        <Route exact path="/resultado-busqueda"
+              children={
+                <>
+                  <ResultadoBusqueda  />
+                </>
+              }
+            />
 
-        <Route exact path="/mi-cuenta"
-          children={
-            <>
-              <MisPasajes user={usuario} />
-              <ListadoDestinos user={usuario}
-                               type="favoritos" />
-              <Ayuda />
-            </>
-          }
-        />
-        </>
-      }
 
-      <Redirect to= {{pathname : '/'}} />
+        {usuario &&
+          <>
+            <Route exact path="/misdestinos"
+              children={
+                <>
+                  <ListadoDestinos user={usuario}
+                    type="misdestinos" />
+                </>
+              }
+            />
+
+            <Route exact path="/mispasajes"
+              children={
+                <>
+                  <MisPasajes user={usuario} />
+                </>
+              }
+            />
+
+
+
+            <Route exact path="/mi-cuenta"
+              children={
+                <>
+                  <MisPasajes user={usuario} />
+                  <ListadoDestinos user={usuario}
+                    type="favoritos" />
+                  <Ayuda />
+                </>
+              }
+            />
+          </>
+        }
+
+        <Redirect to={{ pathname: '/' }} />
 
       </Switch>
 
+
+      
       <Footer />
 
     </Router>
