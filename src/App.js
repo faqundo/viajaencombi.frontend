@@ -13,7 +13,8 @@ import DevolucionPasajes from './components/DevolucionPasajes';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom"; //Está asociado a Link tmb. 
 
 //colores principales:#563d7c o #7F0C78 o  #C87DEA , #6610f2 , #6f42c1 , #9d1d96
@@ -23,6 +24,7 @@ import {
 function App() {
 
   const [usuario, setUsuario] = useState(null);
+  const [origenBuscado, setOrigenBuscado] = useState(null);
 
   const onLoginSuccess = (loggedUser) => {
     setUsuario(loggedUser);
@@ -42,8 +44,14 @@ function App() {
       setUsuario(null);
 
     })
+  }
 
+  const handleOrigenBuscadoChange = (terminoBuscado)=>{
 
+    if (terminoBuscado === ''){
+      terminoBuscado = null;
+    }
+    setOrigenBuscado(terminoBuscado);
   }
 
   return (
@@ -61,8 +69,10 @@ function App() {
         <Route exact path="/"
           children={
             <>
-              <PanelPrincipal />
-              <ListadoDestinos type="destinos" />
+              <PanelPrincipal onSearchOrigen={handleOrigenBuscadoChange}/>
+              <ListadoDestinos type="destinos"
+                               user={usuario}
+                               searchOrigen={origenBuscado}/>
             </>
           }
         />
@@ -96,7 +106,7 @@ function App() {
         <Route exact path="/reenviarpasaje"
           children={
             <>
-              <PanelPrincipal />
+              <PanelPrincipal onSearchOrigen={handleOrigenBuscadoChange}/>
             </>
           }
         />
@@ -127,13 +137,15 @@ function App() {
             <>
               <MisPasajes user={usuario} />
               <ListadoDestinos user={usuario}
-                type="misdestinos" />
+                               type="favoritos" />
               <Ayuda />
             </>
           }
         />
         </>
       }
+
+      <Redirect to= {{pathname : '/'}} />
 
       </Switch>
 

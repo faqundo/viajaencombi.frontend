@@ -12,6 +12,12 @@ import terminal4 from '../images/pasajes-de-micro-en-cuotas-sin-interes-min.webp
 
 const PanelPrincipal = (props) => {
 
+
+    const handleOrigenBuscadoChange = (terminoBuscado) =>{
+        
+        props.onSearchOrigen(terminoBuscado);
+    }
+
     return (
         <Container  >
             <Form.Group >
@@ -21,7 +27,7 @@ const PanelPrincipal = (props) => {
 
                     <Col  xs={6} md={5} lg={6} className="my-3 justify-content-center">
                     
-                        <FormSearch />
+                        <FormSearch onSearchOrigen={handleOrigenBuscadoChange} />
 
                     </Col>
 
